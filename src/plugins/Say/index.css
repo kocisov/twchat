@@ -1,0 +1,28 @@
+.say-plugin {
+  height: 40px;
+  width: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.sp-text {
+  background: rgba(255, 255, 255, .4);
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+  padding: 10px;
+  color: #333;
+  width: calc(100% - 121px);
+}
+
+.sp-btn {
+  background: #5c7cfa;
+  border-radius: 3px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  outline: 0;
+  padding: 10px;
+  text-align: center;
+}

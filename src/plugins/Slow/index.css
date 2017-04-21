@@ -1,0 +1,13 @@
+.slow-plugin {
+  align-items: center;
+  display: flex;
+}
+
+.slow-input {
+  background: rgba(255, 255, 255, .4);
+  border-radius: 3px;
+  border: 0;
+  color: #333;
+  outline: 0;
+  padding: 10px;
+}

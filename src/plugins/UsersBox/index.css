@@ -1,0 +1,7 @@
+/* rethink this */
+.users-box {
+  align-self: flex-start;
+  height: calc(100vh - 116px);
+  padding: 10px;
+  width: 15rem;
+}

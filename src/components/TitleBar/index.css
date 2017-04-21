@@ -1,0 +1,44 @@
+.title-bar {
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  align-items: center;
+  background: #4263eb;
+  color: #fff;
+  display: flex;
+  height: 40px;
+  padding-left: 80px;
+}
+
+.under-title-bar {
+  align-items: center;
+  background: #364fc7;
+  color: #fff;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.under-title-bar li,
+.under-title-bar li a {
+  color: #fff;
+  display: flex;
+}
+
+.under-title-bar li a {
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-top: 5px;
+  text-decoration: none;
+}
+
+.title-bar .flex-r {
+  margin-right: 10px;
+}
+
+.bb-img {
+  border-radius: 50%;
+  height: 30px;
+  margin-left: 5px;
+  object-fit: cover;
+  width: 30px;
+}

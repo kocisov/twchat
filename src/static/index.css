@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 14px;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-r {
+  align-items: center;
+  display: flex;
+}
+
+.content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+ol,
+p,
+a {
+  margin: 0;
+}
+
+.flex-right {
+  margin-left: auto;
+}
+
+.plugins,
+.components {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.plugins {
+  height: 40px;
+  margin-bottom: 2px;
+}
+
+.plugin-info {
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: center;
+  margin: 5px;
+  padding: 10px;
+  width: 100px;
+}
+
+.plugin-info b {
+  font-weight: bold;
+}
+
+.plugins-box {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn-main {
+  background: #5c7cfa;
+  border-radius: 3px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  outline: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.btn-main,
+.sp-btn {
+  align-items: center;
+  display: flex;
+}
