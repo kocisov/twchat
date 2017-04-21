@@ -12,5 +12,9 @@ yarn start
 
 # open new tab and run Electron (optional)
 cd electron
+yarn # install Electron
 yarn start
 ```
+
+### Roadmap
+See #1
