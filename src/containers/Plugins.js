@@ -19,17 +19,20 @@ class Plugins extends Component {
           <div className="plugins-box">
             {plgs.map((_plugin, i) => (
               <div className="plugin-info" key={i}>
-                Plugin
-                <b>
-                  {_plugin.displayName
-                    .replace(/[{()}]/g, '')
-                    .replace(/Connect/g, '')}
-                </b>
+                <div className="plugin-name">
+                  Plugin <br />
+                  <b>
+                    {_plugin.displayName
+                      .replace(/[{()}]/g, '')
+                      .replace(/Connect/g, '')}
+                  </b>
+                </div>
                 <div className="plugin-info-l">
                   {plugins.includes(_plugin.displayName)
                     ? <button
                         onClick={() =>
                           dispatch(deactivatePlugin(_plugin.displayName))}
+
                       >
                         Deactivate
                       </button>
