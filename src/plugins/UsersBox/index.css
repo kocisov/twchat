@@ -2,6 +2,11 @@
 .users-box {
   align-self: flex-start;
   height: calc(100vh - 116px);
-  padding: 10px;
   width: 15rem;
+  background-color: #f7f7f7;
+}
+
+.users-box-info {
+  padding: 10px;
+  color: Black;
 }

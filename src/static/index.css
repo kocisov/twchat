@@ -17,6 +17,7 @@ body {
 .flex-r {
   align-items: center;
   display: flex;
+  justify-content: space-between;
 }
 
 .content {
@@ -79,7 +80,7 @@ a {
 }
 
 .btn-main {
-  background: #5c7cfa;
+  background: #ea3a3d;
   border-radius: 3px;
   border: 0;
   color: #fff;
@@ -89,6 +90,7 @@ a {
   outline: 0;
   padding: 10px;
   text-align: center;
+
 }
 
 .btn-main,

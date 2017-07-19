@@ -125,7 +125,7 @@ class ChatBox extends Component {
           <h2>Chat</h2>
           <button className="btn-main" onClick={this.removeAllMessages}>
             <Trash width={20} height={20} />
-            Clear all messages (UI)
+
           </button>
         </div>
         <div className="messages-box" id="messages-box">
