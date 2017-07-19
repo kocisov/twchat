@@ -20,6 +20,12 @@ body {
   justify-content: space-between;
 }
 
+.fakemessages {
+  width: 20%;
+  justify-content: center;
+  order: 1;
+}
+
 .content {
   align-items: center;
   display: flex;

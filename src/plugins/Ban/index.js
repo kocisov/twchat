@@ -30,7 +30,7 @@ class Ban extends Component {
           placeholder="Username"
         />
         <button className="btn-main" onClick={this.banUser}>
-          <Thermo width={20} height={20} />
+          <Thermo width={19} height={19} />
           Ban this user
         </button>
       </div>

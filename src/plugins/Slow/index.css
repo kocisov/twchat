@@ -1,7 +1,11 @@
 .slow-plugin {
   align-items: center;
+  justify-content: center;
   display: flex;
   margin-left: 10px;
+  order: 2;
+  width: auto;
+
 }
 
 .slow-plugin button {
