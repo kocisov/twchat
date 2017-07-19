@@ -123,7 +123,7 @@ class ChatBox extends Component {
           className="flex-r"
         >
           <h2>Chat</h2>
-          <button className="btn-main" onClick={this.removeAllMessages}>
+          <button className="btn-danger" onClick={this.removeAllMessages}>
             <Trash width={20} height={20} />
 
           </button>

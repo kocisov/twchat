@@ -34,7 +34,7 @@ class Slow extends Component {
     client.slow('kociqq', ms > 0 ? ms : 10);
 
     this.setState(s => ({
-      trnslow: 'Turn off slowmode',
+      trnslow: '&nbsp; Turn off slowmode',
       slow: true,
     }));
   };
@@ -53,7 +53,7 @@ class Slow extends Component {
           className="btn-main"
           onClick={() => this.turnSlow(this.state.val)}
         >
-          <Clock width={20} height={20} />
+          <Clock width={19} height={19} />
           {this.state.trnslow}
         </button>
       </div>

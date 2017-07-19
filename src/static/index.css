@@ -80,7 +80,21 @@ a {
 }
 
 .btn-main {
-  background: #ea3a3d;
+  background: #056DFF;
+  border-radius: 3px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  outline: 0;
+  padding: 10px;
+  text-align: center;
+
+}
+
+.btn-danger {
+  background: #E63737;
   border-radius: 3px;
   border: 0;
   color: #fff;
