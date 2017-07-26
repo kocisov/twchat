@@ -33,6 +33,14 @@ class Say extends Component {
   render() {
     return (
       <div className="say-plugin">
+      <div className="flex-r">
+        <b>{process.env.REACT_APP_TWITCHNAME}</b>
+        <img
+          className="bb-img"
+          src="https://static-cdn.jtvnw.net/jtv_user_pictures/kociqq-profile_image-5797dba5b2304870-300x300.png"
+          alt=""
+        />
+      </div>
         <input
           className="sp-text"
           type="text"
@@ -41,9 +49,8 @@ class Say extends Component {
           value={this.state.val}
           placeholder="Your message..."
         />
-        <button className="sp-btn" onClick={this.handleSubmit}>
+        <button className="sp-btn flex-right" onClick={this.handleSubmit}>
           <PaperAP width={20} height={20} />
-          Send message
         </button>
       </div>
     );

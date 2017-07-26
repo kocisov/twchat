@@ -1,22 +1,26 @@
 .say-plugin {
   height: 40px;
-  width: 480px;
+  width: 40%;
   display: flex;
   align-items: center;
+  background-color: #5f459b;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .sp-text {
-  background: rgba(255, 255, 255, .4);
+  background: #5f459b;
   border-radius: 3px;
   border: 0;
   outline: 0;
   padding: 10px;
-  color: #333;
+  color: white;
   width: calc(100% - 121px);
 }
 
 .sp-btn {
-  background: #5c7cfa;
+  background: #5f459b;
   border-radius: 3px;
   border: 0;
   color: #fff;
@@ -25,4 +29,13 @@
   outline: 0;
   padding: 10px;
   text-align: center;
+}
+
+.bb-img {
+  border-radius: 50%;
+  height: 30px;
+  margin-left: 7px;
+  margin-right: 7px;
+  object-fit: cover;
+  width: 30px;
 }

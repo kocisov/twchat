@@ -17,6 +17,13 @@ body {
 .flex-r {
   align-items: center;
   display: flex;
+  justify-content: space-between;
+}
+
+.fakemessages {
+  width: 20%;
+  justify-content: center;
+  order: 1;
 }
 
 .content {
@@ -59,17 +66,38 @@ a {
   align-items: center;
   border-radius: 3px;
   border: 1px solid #e7e7e7;
+  border-bottom: 0px;
   display: flex;
   flex-direction: column;
   height: 100px;
   justify-content: center;
   margin: 5px;
-  padding: 10px;
   width: 100px;
 }
 
 .plugin-info b {
   font-weight: bold;
+}
+
+.plugin-info-l {
+    width: 100%;
+}
+
+.plugin-name {
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+}
+
+.plugin-info-l button {
+  border: 0;
+  outline: 0;
+  background-color: #5f459b;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  height: 30px;
+  align-items: flex-end;
 }
 
 .plugins-box {
@@ -79,7 +107,7 @@ a {
 }
 
 .btn-main {
-  background: #5c7cfa;
+  background: #056DFF;
   border-radius: 3px;
   border: 0;
   color: #fff;
@@ -89,6 +117,21 @@ a {
   outline: 0;
   padding: 10px;
   text-align: center;
+
+}
+
+.btn-danger {
+  background: #E63737;
+  border-radius: 3px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  outline: 0;
+  padding: 10px;
+  text-align: center;
+
 }
 
 .btn-main,

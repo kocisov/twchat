@@ -36,13 +36,15 @@ class UsersBox extends Component {
 
     return (
       <div className="users-box">
-        <h2>Users in chat</h2>
-        <h4>Current user count: {count}</h4>
-        {users.map((user, i) => (
-          <div key={i}>
-            <div className="ub-user-name">{user}</div>
-          </div>
-        ))}
+        <div className="users-box-info">
+          <h2>Users in chat</h2>
+          <h4>Current user count: {count}</h4>
+        </div>
+          {users.map((user, i) => (
+            <div key={i}>
+              <div className="ub-user-name">{user}</div>
+            </div>
+          ))}
       </div>
     );
   }

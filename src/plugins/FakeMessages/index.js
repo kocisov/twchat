@@ -19,8 +19,8 @@ class FakeMessages extends Component {
 
   render() {
     return (
-      <button className="btn-main" onClick={this.fakeSpam}>
-        <ChatBoxes width={20} height={20} />
+      <button className="btn-main fakemessages" onClick={this.fakeSpam}>
+        <ChatBoxes width={19} height={19} />
         Fake messages
       </button>
     );

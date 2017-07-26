@@ -2,16 +2,16 @@
   -webkit-app-region: drag;
   -webkit-user-select: none;
   align-items: center;
-  background: #4263eb;
+  background: #4b367c;
   color: #fff;
   display: flex;
   height: 40px;
-  padding-left: 80px;
+  justify-content: center;
 }
 
 .under-title-bar {
   align-items: center;
-  background: #364fc7;
+  background: #5f459b;
   color: #fff;
   display: flex;
   margin: 0;
@@ -22,23 +22,26 @@
 .under-title-bar li a {
   color: #fff;
   display: flex;
+
 }
 
 .under-title-bar li a {
   padding-bottom: 5px;
   padding-left: 15px;
+  padding-right: 15px;
   padding-top: 5px;
   text-decoration: none;
+  text-align: center;
+}
+
+.under-title-bar li:hover {
+  background-color: #6a4ead;
+}
+
+.under-title-bar li a:ative {
+  background-color: #4b367c;
 }
 
 .title-bar .flex-r {
   margin-right: 10px;
-}
-
-.bb-img {
-  border-radius: 50%;
-  height: 30px;
-  margin-left: 5px;
-  object-fit: cover;
-  width: 30px;
 }

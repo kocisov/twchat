@@ -1,13 +1,28 @@
 .slow-plugin {
   align-items: center;
+  justify-content: center;
   display: flex;
+  margin-left: 10px;
+  order: 2;
+  width: auto;
+
+}
+
+.slow-plugin button {
+  margin: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .slow-input {
-  background: rgba(255, 255, 255, .4);
+  background: rgba(50, 135, 255, 1);
   border-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   border: 0;
-  color: #333;
+  color: black;
   outline: 0;
-  padding: 10px;
+  padding: 13px;
+  width: 30%;
+  font-weight: bold;
 }
