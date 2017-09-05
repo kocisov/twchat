@@ -28,6 +28,10 @@ function createWindow () {
   }))
 
   mainWindow.webContents.openDevTools()
+  
+  mainWindow.on('browser-window-created', (e, window) => {
+    window.setMenu(null)
+  })
 
   mainWindow.on('closed', () => {
     mainWindow = null
