@@ -1,30 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { changeMountState } from '../modules/mount';
-import Ban from '../plugins/Ban';
-import ChatBox from '../plugins/ChatBox';
-import FakeMessages from '../plugins/FakeMessages';
-import Say from '../plugins/Say';
-import Slow from '../plugins/Slow';
-import TitleBar from '../components/TitleBar';
-import UsersBox from '../plugins/UsersBox';
-import 'isomorphic-fetch';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { changeMountState } from '../modules/mount'
+import Ban from '../plugins/Ban'
+import ChatBox from '../plugins/ChatBox'
+import FakeMessages from '../plugins/FakeMessages'
+import Say from '../plugins/Say'
+import Slow from '../plugins/Slow'
+import TitleBar from '../components/TitleBar'
+import UsersBox from '../plugins/UsersBox'
+import 'isomorphic-fetch'
 
-export const _components = [ChatBox, UsersBox];
-export const _plugins = [Say, Slow, Ban, FakeMessages];
+export const _components = [ChatBox, UsersBox]
+export const _plugins = [Say, Slow, Ban, FakeMessages]
 
 export const Content = ({ children }) => (
-  <div className="content">
-    {children}
-  </div>
-);
+  <div className="content">{children}</div>
+)
 
 class Interface extends Component {
   componentDidMount() {
-    const { client, mounted, changeMountState } = this.props;
+    const { client, mounted, changeMountState } = this.props
 
     if (mounted) {
-      return false;
+      return false
     }
 
     setTimeout(() => {
@@ -36,17 +34,17 @@ class Interface extends Component {
       })
         .then(a => a.json())
         .then(data => {
-          console.log(data);
-        });
-    }, 1000);
+          console.log(data)
+        })
+    }, 1000)
 
-    client.connect();
+    client.connect()
 
-    changeMountState('Interface', true);
+    changeMountState('Interface', true)
   }
 
   render() {
-    const { plugins } = this.props;
+    const { plugins } = this.props
 
     return (
       <div>
@@ -55,24 +53,24 @@ class Interface extends Component {
           <div className="components">
             {_components.map((Plugin, i) => {
               if (plugins.includes(Plugin.displayName)) {
-                return <Plugin key={i} />;
+                return <Plugin key={i} />
               } else {
-                return ``;
+                return ``
               }
             })}
           </div>
           <div className="plugins">
             {_plugins.map((Plugin, i) => {
               if (plugins.includes(Plugin.displayName)) {
-                return <Plugin key={i} />;
+                return <Plugin key={i} />
               } else {
-                return ``;
+                return ``
               }
             })}
           </div>
         </Content>
       </div>
-    );
+    )
   }
 }
 
@@ -81,9 +79,9 @@ function mapStateToProps(state) {
     mounted: state.mount.Interface,
     client: state.client,
     plugins: state.plugins,
-  };
+  }
 }
 
 export default connect(mapStateToProps, {
   changeMountState,
-})(Interface);
+})(Interface)

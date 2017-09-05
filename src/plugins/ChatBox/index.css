@@ -9,7 +9,7 @@
 .messages-box {
   height: 100%;
   overflow-y: scroll;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .messages-box::-webkit-scrollbar {
@@ -24,7 +24,7 @@
 }
 
 .messages-box::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 9px;
   border: 3px solid #4263eb;
 }

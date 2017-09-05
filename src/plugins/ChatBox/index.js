@@ -1,11 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { parse } from 'twitch-emoji';
-import Trash from 'react-icons/lib/io/trash-a';
-import * as msgActions from '../../modules/messages';
-import { changeMountState } from '../../modules/mount';
-import bttv from '../../static/bttv.json';
-import './index.css';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Trash from 'react-icons/lib/io/trash-a'
+import * as msgActions from '../../modules/messages'
+import { changeMountState } from '../../modules/mount'
+import twitchEmotesJson from '../../static/gl.json'
+import bttvJson from '../../static/newBttv.json'
+import './index.css'
+
+const Emote = ({ src }) => (
+  <img
+    style={{ width: 30, height: 30, objectFit: 'contain', marginRight: 3 }}
+    src={src}
+    alt=""
+  />
+)
+const Text = ({ children }) => (
+  <span style={{ marginRight: 3 }}>{children}</span>
+)
 
 let defaultColors = [
   '#FF0000',
@@ -23,96 +34,118 @@ let defaultColors = [
   '#FF69B4',
   '#8A2BE2',
   '#00FF7F',
-];
+]
 
-let randomColorsChosen = {};
+let randomColorsChosen = {}
 
 function emoteParser(msg) {
-  const base = `https://cdn.betterttv.net/emote/`;
-  const size = '1x';
-  let _msg = msg;
+  const getEmoteUrl = (code, type) =>
+    type === 1
+      ? `https://cdn.betterttv.net/emote/${code}/1x`
+      : `https://static-cdn.jtvnw.net/emoticons/v1/${code}/1.0`
+
+  const keys = Object.keys(twitchEmotesJson)
+
+  let newMessage = []
 
   // eslint-disable-next-line
   msg.split(/\s+/).map(t => {
-    // eslint-disable-next-line
-    bttv.emotes.filter(emote => t === emote.code).map(e => {
-      if (e.id && e.id.length > 0) {
-        _msg = msg.replace(
-          t,
-          `<img className="twitch-emoji" src="${base}/${e.id}/${size}" alt="">`
-        );
-      }
-    });
-  });
+    const matchDefault = keys.find(x => x === t)
+    const matchBTTV = bttvJson.emotes.find(x => x.code === t)
 
-  return parse(_msg, {
-    emojiSize: 'small',
-  });
+    if (matchDefault) {
+      newMessage.push({
+        type: 'emote',
+        value: getEmoteUrl(twitchEmotesJson[matchDefault].id, 0),
+      })
+    } else {
+      if (matchBTTV) {
+        newMessage.push({
+          type: 'emote',
+          value: getEmoteUrl(matchBTTV.id, 1),
+        })
+      } else {
+        newMessage.push({
+          type: 'text',
+          value: t,
+        })
+      }
+    }
+  })
+
+  return newMessage.map(
+    (parsed, i) =>
+      parsed.type === 'emote' ? (
+        <Emote key={i} src={parsed.value} />
+      ) : (
+        <Text key={i}>{parsed.value}</Text>
+      )
+  )
 }
 
 function resolveColor(chan, name, color) {
   if (color !== null) {
-    return color;
+    return color
   }
 
   if (!(chan in randomColorsChosen)) {
-    randomColorsChosen[chan] = {};
+    randomColorsChosen[chan] = {}
   }
 
   if (name in randomColorsChosen[chan]) {
-    color = randomColorsChosen[chan][name];
+    color = randomColorsChosen[chan][name]
   } else {
-    color = defaultColors[Math.floor(Math.random() * defaultColors.length)];
-    randomColorsChosen[chan][name] = color;
+    color = defaultColors[Math.floor(Math.random() * defaultColors.length)]
+    randomColorsChosen[chan][name] = color
   }
 
-  return color;
+  return color
 }
 
 class ChatBox extends Component {
   componentDidUpdate(f) {
-    const d = document.getElementById('messages-box');
+    const d = document.getElementById('messages-box')
 
-    let sh = d.scrollHeight;
-    let ch = d.clientHeight;
-    let st = d.scrollTop;
+    let sh = d.scrollHeight
+    let ch = d.clientHeight
+    let st = d.scrollTop
 
     if (ch + st + 70 >= sh) {
-      d.scrollTop = sh;
+      d.scrollTop = sh
     } else if (f === 1) {
-      d.scrollTop = sh;
+      d.scrollTop = sh
     }
   }
 
   removeAllMessages = () => {
-    const { clearMessages } = this.props;
-    clearMessages();
-  };
+    const { clearMessages } = this.props
+    clearMessages()
+  }
 
   componentDidMount() {
-    const { client, newMessage, mounted, changeMountState } = this.props;
+    const { client, newMessage, mounted, changeMountState } = this.props
 
     if (mounted) {
-      this.componentDidUpdate(1);
-      return false;
+      this.componentDidUpdate(1)
+      return false
     }
 
     client.on('chat', (ch, us, msg, slf) => {
-      const color = resolveColor(ch, us.username, us.color);
+      const color = resolveColor(ch, us.username, us.color)
 
       newMessage({
         channel: ch,
         userState: us,
         color,
         msg,
-      });
-    });
+      })
+    })
 
-    changeMountState('ChatBox', true);
+    changeMountState('ChatBox', true)
   }
 
   render() {
-    const { messages } = this.props;
+    const { messages } = this.props
 
     return (
       <div className="chat-box">
@@ -130,7 +163,7 @@ class ChatBox extends Component {
         </div>
         <div className="messages-box" id="messages-box">
           {messages.map((message, i) => {
-            let nm = message.userState['display-name'];
+            let nm = message.userState['display-name']
             return (
               <div className="cb-message" key={i}>
                 <div
@@ -141,21 +174,14 @@ class ChatBox extends Component {
                 >
                   {nm !== null ? nm : message.userState.username}
                 </div>
-                <div className="cb-divider">
-                  -
-                </div>
-                <div
-                  className="cb-user-message"
-                  dangerouslySetInnerHTML={{
-                    __html: emoteParser(message.msg),
-                  }}
-                />
+                <div className="cb-divider">-</div>
+                {emoteParser(message.msg)}
               </div>
-            );
+            )
           })}
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -164,10 +190,10 @@ function mapStateToProps(state) {
     mounted: state.mount.ChatBox,
     messages: state.messages,
     client: state.client,
-  };
+  }
 }
 
 export default connect(mapStateToProps, {
   ...msgActions,
   changeMountState,
-})(ChatBox);
+})(ChatBox)
